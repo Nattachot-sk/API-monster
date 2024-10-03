@@ -1,0 +1,15 @@
+-- CreateTable
+CREATE TABLE `skills` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `name` VARCHAR(191) NOT NULL,
+    `damage` INTEGER NOT NULL DEFAULT 10,
+    `mana` INTEGER NOT NULL DEFAULT 10,
+    `palyerId` INTEGER NOT NULL,
+    `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `updatedAt` DATETIME(3) NOT NULL,
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- AddForeignKey
+ALTER TABLE `skills` ADD CONSTRAINT `skills_palyerId_fkey` FOREIGN KEY (`palyerId`) REFERENCES `players`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
